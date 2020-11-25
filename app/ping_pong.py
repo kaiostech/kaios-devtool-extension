@@ -36,8 +36,10 @@ try:
             stream = os.popen("./appscmd -j list")
             output = stream.read()
             sendMessage(encodeMessage(output))
-        elif action == "install":
-            sendMessage(encodeMessage(action))
+        elif action == "choose-install-folder":
+            stream = os.popen("./appscmd choose-install-folder")
+            output = stream.read()
+            sendMessage(encodeMessage(output))
         elif action == "uninstall":
             manifest = receivedMessage["manifest"]
             if manifest:
@@ -78,14 +80,10 @@ except AttributeError:
             stream = os.popen("./appscmd -j list")
             output = stream.read()
             sendMessage(encodeMessage(output))
-        elif action == "install":
-            # root = Tk()
-            # root.directory = tkFileDialog.askdirectory()
-            # if root.directory:
-            #     cmd = "./appscmd install \"" + root.directory + "\""
-            #     stream = os.popen(cmd)
-            #     output = stream.read()
-            sendMessage(encodeMessage(action))
+        elif action == "choose-install-folder":
+            stream = os.popen("./appscmd choose-install-folder")
+            output = stream.read()
+            sendMessage(encodeMessage(output))
         elif action == "uninstall":
             manifest = receivedMessage["manifest"]
             if manifest:

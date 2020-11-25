@@ -73,7 +73,7 @@ window.addEventListener('click', (e) => {
 installAppBtn.addEventListener('click', () => {
   const sending = browser.runtime.sendNativeMessage(
     "ping_pong",
-    {action: 'install'});
+    {action: 'choose-install-folder'});
   sending.then((response) => {
     console.log('response', response);
     listAllApps();
