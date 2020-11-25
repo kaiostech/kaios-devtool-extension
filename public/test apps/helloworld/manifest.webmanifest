@@ -1,0 +1,16 @@
+{
+  "name": "Helloworld",
+  "short_name": "Helloworld",
+  "description": "Helloworld",
+  "lang": "en-US",
+  "icons": [],
+  "orientation": "natural",
+  "start_url": "/index.html",
+  "theme_color": "#fbba32",
+  "b2g_features": {
+    "version": "1.0",
+    "core": false,
+    "permissions": {
+    }
+  }
+}

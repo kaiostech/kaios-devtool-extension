@@ -1,7 +1,0 @@
-{
-  "name": "ping_pong",
-  "description": "Example host for native messaging",
-  "path": "/home/daniel/kaios/next/kaios-devtool/app/ping_pong.py",
-  "type": "stdio",
-  "allowed_extensions": [ "kaios-devtool@kaiostech.com" ]
-}

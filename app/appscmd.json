@@ -1,7 +1,0 @@
-{
-  "name": "appscmd",
-  "description": "Example host for native messaging",
-  "path": "/home/daniel/kaios/next/kaios-devtool/app/appscmd",
-  "type": "stdio",
-  "allowed_extensions": [ "kaios-devtool@kaiostech.com" ]
-}

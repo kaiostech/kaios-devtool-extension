@@ -31,32 +31,22 @@ function onError(error) {
 function listAllApps() {
   console.log('listAllApps');
   // execute 'list' appscmd
-  const sending = browser.runtime.sendNativeMessage(
+  const sending = window.browser.runtime.sendNativeMessage(
     "ping_pong",
     {action: 'list'});
   sending.then(onResponse, onError);
 }
 
-function installApp() {
-  // execute 'install' appscmd
-}
-
 function uninstallApp(manifest) {
   console.log('uninstallApp', manifest);
   if (!manifest) return;
-  const sending = browser.runtime.sendNativeMessage(
+  const sending = window.browser.runtime.sendNativeMessage(
     "ping_pong",
     {action: 'uninstall', manifest});
   sending.then((res) => {
     console.log(`Response::uninstallApp::${manifest}`, res);
     listAllApps();
   }, onError);
-
-  // execute 'uninstall' appscmd
-}
-
-function chooseAppManifestFromFileExplorer() {
-
 }
 
 // XXX: Should check device connect state first
@@ -71,7 +61,7 @@ window.addEventListener('click', (e) => {
 });
 
 installAppBtn.addEventListener('click', () => {
-  const sending = browser.runtime.sendNativeMessage(
+  const sending = window.browser.runtime.sendNativeMessage(
     "ping_pong",
     {action: 'choose-install-folder'});
   sending.then((response) => {
@@ -81,4 +71,3 @@ installAppBtn.addEventListener('click', () => {
     console.error(new Error(error));
   });
 });
-

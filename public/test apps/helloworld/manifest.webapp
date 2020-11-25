@@ -1,0 +1,24 @@
+{
+  "name": "Helloworld",
+  "description": "Helloworld",
+  "launch_path": "/index.html",
+  "type": "certified",
+  "default_locale": "en-US",
+  "permissions": {
+    "softkey": {},
+    "feature-detection": {},
+    "settings": { "access": "readwrite" }
+  },
+  "theme_color": "#fbba32",
+  "locales": {
+    "en-US": {
+      "name": "Helloworld",
+      "description": "Helloworld"
+    }
+  },
+  "icons": {
+  },
+  "orientation": "default",
+  "activities": {},
+  "messages": []
+}
