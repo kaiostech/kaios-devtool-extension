@@ -1,14 +1,10 @@
 <template>
-  <ul>
-    <li v-for="app in apps" :key="app.manifest">
-      {{ app.name }}
-      <br>
-      <button
-        @click="uninstallApp(app)">
-        Uninstall
-      </button>
-    </li>
-  </ul>
+  <div>
+    <div v-for="app in apps" @click.stop="setFocusedApp(app)"
+         class="row app"  :key="app.manifest_url">
+      <div class="col">{{ app.name }}</div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,10 +15,22 @@ export default {
     apps: state => state.apps.all
   }),
   methods: mapActions('apps', [
-    'uninstallApp'
+    'setFocusedApp'
   ]),
   created () {
     this.$store.dispatch('apps/getAllApps')
   }
 }
 </script>
+
+<style>
+.app {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.app:hover {
+  background-color: lightskyblue;
+}
+</style>

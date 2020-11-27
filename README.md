@@ -4,26 +4,25 @@ For now, this is a lightway UI to install/uninstall & list apps.
 
 ## Requirements
 
- 1. Clone this repo to your local.
- 2. Ubuntu (tested on 18.04)
- 3. Python (tested on 2.7)
- 4. Firefox nightly tested with 18.04
- 5. Install native app
-    * copy `app/ping_pong.json` to correct manifest location
-    You'll need to copy apps/ping_pong.json to specific path to enable native messaging feature.
-    On Ubuntu it's `~/.mozilla/native-messaging-hosts/ping_pong.json`
-    Check appendix [2] for detail
-    * Replace `path` to the correct path to access `ping_pong.py`. Be noticed the `appcmd` need to be in the same directory.
+1. Ubuntu (tested with 18.04)
+2. Python (tested with 2.7)
+3. Firefox nightly tested with 84.0b4
 
 ## Usage
 
- 1. Make sure KaiOS device connected with `adb root`, seems appscmd crashes without this.
-    Also appscmd & ping_pong.py must have `x` permission.
- 2. Open firefox nightly & go to page `about:debugging`
- 3. Click `This Firefox` on top left
- 4. Title `Temporary Extensions`, click `Load Temporary Add-on`
- 5. Choose `manifest.json` where you just cloned.
- 6. Click "K" icon on toolbar.
+1. clone this repo run `npm install && npm run build` or download artifact(under development).
+   `bash install_native_app.sh` to install native app.
+
+2. Make sure KaiOS device connected with `adb root`, seems appscmd crashes without this.
+   Also appscmd & message_host.py must have `x` permission.
+
+3. Open firefox nightly & go to page `about:debugging`
+
+4. Click `This Firefox` on top left
+
+5. Title `Temporary Extensions`, click `Load Temporary Add-on`, choose `manifest.json`.
+
+6. Click "K" icon on toolbar.
 
 ## Snapshot
 
@@ -32,10 +31,11 @@ For now, this is a lightway UI to install/uninstall & list apps.
 
 ## Appendix
 
- [1] Native Messaging
- <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging>
- [2] Native Manifest
- <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests>
+[1] Native Messaging
+<https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging>
+
+[2] Native Manifest
+<https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests>
 
 ## Project setup
 
@@ -48,12 +48,6 @@ For now, this is a lightway UI to install/uninstall & list apps.
 
 ```sh
 npm install
-```
-
-### Compiles and hot-reloads for development
-
-```sh
-npm run serve
 ```
 
 ### Compiles and minifies for production

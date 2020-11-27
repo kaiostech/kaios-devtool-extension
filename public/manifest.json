@@ -24,6 +24,6 @@
     "default_title": "KaiOS DevTool"
   },
 
-  "permissions": ["nativeMessaging", "devtools"]
+  "permissions": ["nativeMessaging", "devtools", "alarms"]
 
 }

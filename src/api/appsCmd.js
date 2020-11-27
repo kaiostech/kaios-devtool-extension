@@ -1,5 +1,5 @@
 const sendNativeMessage = window.browser.runtime.sendNativeMessage;
-const NATIVEAPP = "ping_pong";
+const NATIVEAPP = "message_host";
 const SHELL_CMD = Object.freeze({
   LIST: "./appscmd -j list",
   INSTALL: "./appscmd choose-install-folder",
@@ -8,12 +8,23 @@ const SHELL_CMD = Object.freeze({
 });
 
 export default {
+  // app structure
+  // {
+  //   "name":"calculator",
+  //   "install_state":"Installed",
+  //   "manifest_url":"http://calculator.localhost/manifest.webapp",
+  //   "status":"Enabled",
+  //   "update_state":"Idle",
+  //   "update_url":"",
+  //   "allowed_auto_download":false
+  // }
   listApps: () => {
     const action = SHELL_CMD.LIST;
     return sendNativeMessage(NATIVEAPP, {action}).then((response) => {
-      console.log('response', response);
       try {
-        return JSON.parse(response);
+        const list = JSON.parse(response);
+        console.log(`list.length::${Array.from(list).length}`)
+        return list;
       } catch(e) {
         console.error(new Error(e));
         return [];
@@ -43,9 +54,9 @@ export default {
     });
   },
 
-  uninstallApp: (manifest) => {
-    if (!manifest) return Promise.reject('No App manifest provided...');
-    const action = `${SHELL_CMD.UNINSTALL} "${manifest}"`;
+  uninstallApp: (manifest_url) => {
+    if (!manifest_url) return Promise.reject('No App manifest provided...');
+    const action = `${SHELL_CMD.UNINSTALL} "${manifest_url}"`;
     return sendNativeMessage(NATIVEAPP, {action}).then((response) => {
       return response;
     }, (reason) => {
