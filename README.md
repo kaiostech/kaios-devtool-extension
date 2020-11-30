@@ -27,7 +27,7 @@ For now, this is a lightway UI to install/uninstall & list apps.
 ## Snapshot
 
  For now the UI is really simple...
-<img alt="" src="kaios_devtool.png" style="max-width:50%">
+<img alt="" src="kaios_devtool.png" style="max-width:50vh">
 
 ## Appendix
 
