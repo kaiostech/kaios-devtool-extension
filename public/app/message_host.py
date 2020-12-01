@@ -3,7 +3,7 @@
 import sys
 import json
 import struct
-import os
+import subprocess
 
 try:
     # Python 3.x version
@@ -33,8 +33,9 @@ try:
         receivedMessage = getMessage()
         action = receivedMessage["action"]
         if action:
-            stream = os.popen(action)
-            output = stream.read()
+            process = subprocess.Popen(action, shell=True, stdout=subprocess.PIPE)
+            process.wait()
+            output = process.stdout.read()
             sendMessage(encodeMessage(output))
         else:
             sendMessage(encodeMessage('{"else": %s}' % receivedMessage))
@@ -67,8 +68,9 @@ except AttributeError:
         receivedMessage = getMessage()
         action = receivedMessage["action"]
         if action:
-            stream = os.popen(action)
-            output = stream.read()
+            process = subprocess.Popen(action, shell=True, stdout=subprocess.PIPE)
+            process.wait()
+            output = process.stdout.read()
             sendMessage(encodeMessage(output))
         else:
             sendMessage(encodeMessage('{"else": %s}' % receivedMessage))

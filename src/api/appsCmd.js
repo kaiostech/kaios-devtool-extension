@@ -29,7 +29,7 @@ export default {
         console.error(new Error(e));
         return [];
       }
-    }, (reason) =>{
+    }, (reason) => {
       console.error(new Error(reason));
       return [];
     });
