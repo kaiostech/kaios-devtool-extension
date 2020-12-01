@@ -5,13 +5,15 @@
 # LIMITED or its affiliate company and may be registered in some jurisdictions.
 # All other trademarks are the property of their respective owners.
 
-image: node:12.20.0
+image: ${CI_REGISTRY}/releng/ci-util/dockerhub-mirror/node:12.20.0
 
 stages:
   - build
 
 Build app:
   stage: build
+  tags:
+    - tpe-shared
   script:
     - npm install
     - npm run build
