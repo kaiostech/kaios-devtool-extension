@@ -5,7 +5,7 @@
 # LIMITED or its affiliate company and may be registered in some jurisdictions.
 # All other trademarks are the property of their respective owners.
 
-image: node:12
+image: node:12.20.0
 
 stages:
   - build
