@@ -1,6 +1,6 @@
 # KaiOS DevTool
 
-For now, this is a lightway UI to install/uninstall & list apps.
+A lightway UI to install/uninstall & list apps.
 
 ## Requirements
 
@@ -10,19 +10,23 @@ For now, this is a lightway UI to install/uninstall & list apps.
 
 ## Usage
 
-1. clone this repo run `npm install && npm run build` or download artifact(under development).
-   `bash install_native_app.sh` to install native app.
+1. Download latest artifact from <https://git.kaiostech.com/daniel.yang/kaios-devtool/pipelines> then unzip it.
+    - Or clone this repo then execute `npm install && npm run build`.
 
-2. Make sure KaiOS device connected with `adb root`, seems appscmd crashes without this.
-   Also appscmd & message_host.py must have `x` permission.
+2. ```sh
+   cd dist
+   bash app\install_native_app.sh
+   ```
 
-3. Open firefox nightly & go to page `about:debugging`
+3. Make sure KaiOS device connected with `adb root`, seems appscmd crashes without this.
 
-4. Click `This Firefox` on top left
+4. Open firefox nightly & go to page `about:debugging`
 
-5. Title `Temporary Extensions`, click `Load Temporary Add-on`, choose `manifest.json`.
+5. Click `This Firefox` on top left
 
-6. Click "K" icon on toolbar.
+6. Title `Temporary Extensions`, click `Load Temporary Add-on`, choose `manifest.json`.
+
+7. Click "K" icon on toolbar.
 
 ## Snapshot
 
