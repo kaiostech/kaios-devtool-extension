@@ -1,6 +1,6 @@
 # KaiOS DevTool
 
-A lightway UI to install/uninstall & list apps.
+A lightweight UI to install/uninstall & list apps.
 
 ## Requirements
 
@@ -17,6 +17,11 @@ A lightway UI to install/uninstall & list apps.
    cd dist
    bash app\install_native_app.sh
    ```
+
+    For Windows please make sure python installed then execute following steps
+    - Rename `message_host_win.json` to replace `message_host.json`
+    - replace `%~dp0` inside `install_native_app.bat` and `message_host.bat` to valid path
+    - execute `install_native_app.bat`
 
 3. Make sure KaiOS device connected with `adb root`, seems appscmd crashes without this.
 

@@ -1,0 +1,7 @@
+{
+  "name": "message_host",
+  "description": "KaiOS message host to use native messaging for devtool",
+  "path": "message_host.bat",
+  "type": "stdio",
+  "allowed_extensions": [ "kaios-devtool@kaiostech.com" ]
+}
