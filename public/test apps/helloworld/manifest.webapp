@@ -1,24 +1,16 @@
 {
   "name": "Helloworld",
+  "short_name": "Helloworld",
   "description": "Helloworld",
-  "launch_path": "/index.html",
-  "type": "certified",
-  "default_locale": "en-US",
-  "permissions": {
-    "softkey": {},
-    "feature-detection": {},
-    "settings": { "access": "readwrite" }
-  },
+  "lang": "en-US",
+  "icons": [],
+  "orientation": "natural",
+  "start_url": "/index.html",
   "theme_color": "#fbba32",
-  "locales": {
-    "en-US": {
-      "name": "Helloworld",
-      "description": "Helloworld"
+  "b2g_features": {
+    "version": "1.0",
+    "core": false,
+    "permissions": {
     }
-  },
-  "icons": {
-  },
-  "orientation": "default",
-  "activities": {},
-  "messages": []
+  }
 }
