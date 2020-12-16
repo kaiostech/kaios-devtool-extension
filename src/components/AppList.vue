@@ -18,7 +18,7 @@ export default {
     'setFocusedApp'
   ]),
   created () {
-    this.$store.dispatch('apps/getAllApps')
+    this.$store.dispatch('apps/getAllApps');
   }
 }
 </script>

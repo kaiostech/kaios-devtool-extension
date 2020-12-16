@@ -1,11 +1,5 @@
 const sendNativeMessage = window.browser.runtime.sendNativeMessage;
 const NATIVEAPP = "message_host";
-const SHELL_CMD = Object.freeze({
-  LIST: "./appscmd -j list",
-  INSTALL: "./appscmd choose-install-folder",
-  INSTALL_PWA: "./appscmd install-pwa",
-  UNINSTALL: "./appscmd uninstall"
-});
 
 export default {
   // app structure
@@ -18,8 +12,7 @@ export default {
   //   "update_url":"",
   //   "allowed_auto_download":false
   // }
-  listApps: () => {
-    const action = SHELL_CMD.LIST;
+  listApps: (action) => {
     return sendNativeMessage(NATIVEAPP, {action}).then((response) => {
       try {
         const list = JSON.parse(response);
@@ -35,8 +28,7 @@ export default {
     });
   },
 
-  installApp: () => {
-    const action = SHELL_CMD.INSTALL;
+  installApp: (action) => {
     return sendNativeMessage(NATIVEAPP, {action}).then((response) => {
       return response;
     }, (reason) => {
@@ -44,9 +36,9 @@ export default {
     });
   },
 
-  installPwaApp: (url) => {
+  installPwaApp: (cmd, url) => {
     if (!url) return Promise.reject('No PWA URL provided...');
-    const action = `${SHELL_CMD.INSTALL_PWA} "${url}"`;
+    const action = `${cmd} "${url}"`;
     return sendNativeMessage(NATIVEAPP, {action}).then((response) => {
       return response;
     }, (reason) => {
@@ -54,9 +46,9 @@ export default {
     });
   },
 
-  uninstallApp: (manifest_url) => {
+  uninstallApp: (cmd, manifest_url) => {
     if (!manifest_url) return Promise.reject('No App manifest provided...');
-    const action = `${SHELL_CMD.UNINSTALL} "${manifest_url}"`;
+    const action = `${cmd} "${manifest_url}"`;
     return sendNativeMessage(NATIVEAPP, {action}).then((response) => {
       return response;
     }, (reason) => {
