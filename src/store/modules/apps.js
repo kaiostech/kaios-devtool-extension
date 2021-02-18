@@ -1,11 +1,11 @@
 import appsCmd from '../../api/appsCmd';
 
-const APPSCMD = window.navigator.platform.startsWith('Win')
-                ? 'appscmd.exe' : './appscmd';
+const APPSCMD = window.navigator.platform.startsWith('Win') ? 'appscmd.exe'
+                : './appscmd';
 
 const simulatorSocket = function (isSimulator) {
   return isSimulator ? '--socket=/tmp/apps_service_uds.sock' : '';
-}
+};
 
 const state = () => ({
   all: [],
@@ -15,9 +15,9 @@ const state = () => ({
   installApp: `${APPSCMD} ${simulatorSocket()} choose-install-folder`,
   installPwaApp: `${APPSCMD} ${simulatorSocket()} install-pwa`,
   uninstallApp: `${APPSCMD} ${simulatorSocket()} uninstall`,
-})
+});
 
-const getters = {}
+const getters = {};
 
 const actions = {
   getAllApps ({ state, commit }) {
@@ -37,10 +37,11 @@ const actions = {
     appsCmd.uninstallApp(state.uninstallApp, manifest_url).then(() => {
       appsCmd.listApps(state.getAllApps).then(apps => {
         commit('setApps', apps);
-        if (state.focusedApp.manifest_url === manifest_url) {
+        if (state.focusedApp &&
+            state.focusedApp.manifest_url === manifest_url) {
           commit('setFocusedApp', null);
         }
-      })
+      });
     });
   },
   setFocusedApp({ commit }, app) {
@@ -62,9 +63,9 @@ const mutations = {
     console.log('toggleSimulator');
     state.isSimulator = val;
     state.getAllApps = `${APPSCMD} -j ${simulatorSocket(state.isSimulator)} list`;
-    state.installApp = `${APPSCMD} ${simulatorSocket(state.isSimulator)} choose-install-folder`
-    state.installPwaApp = `${APPSCMD} ${simulatorSocket(state.isSimulator)} install-pwa`
-    state.uninstallApp = `${APPSCMD} ${simulatorSocket(state.isSimulator)} uninstall`
+    state.installApp = `${APPSCMD} ${simulatorSocket(state.isSimulator)} choose-install-folder`;
+    state.installPwaApp = `${APPSCMD} ${simulatorSocket(state.isSimulator)} install-pwa`;
+    state.uninstallApp = `${APPSCMD} ${simulatorSocket(state.isSimulator)} uninstall`;
     console.log('toggleSimulator finished');
   },
 }
@@ -75,4 +76,4 @@ export default {
   getters,
   actions,
   mutations
-}
+};

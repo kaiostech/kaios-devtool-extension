@@ -5,7 +5,10 @@
   "name": "KaiOS devtool",
   "version": "1.0",
   "icons": {
-    "48": "img/icons/cropped-KaiOS-Icon-32x32.png"
+    "16": "img/icons/kaidev_16.png",
+    "48": "img/icons/kaidev_48.png",
+    "60": "img/icons/kaidev_60.png",
+    "128": "img/icons/kaidev_128.png"
   },
 
   "browser_specific_settings": {
@@ -21,7 +24,8 @@
 
   "browser_action": {
     "browser_style": true,
-    "default_title": "KaiOS DevTool"
+    "default_title": "KaiOS DevTool",
+    "default_popup": "index.html"
   },
 
   "permissions": ["nativeMessaging", "devtools", "alarms"]

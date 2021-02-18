@@ -4,6 +4,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="style/gaia-icons.css">
+    <style>
+      @font-face {
+        font-family: 'Open Sans';
+        src: url('style/fonts/OpenSans-Regular.ttf')  format('truetype');
+        font-style: normal;
+        font-weight: 400;
+      }
+      * {
+        font-family: 'Open Sans';
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 15px;
+        scrollbar-color: #8c8c8c transparent;
+      }
+      [data-icon] {
+        width: 2rem;
+        height: 3rem;
+        font-size: 2rem;
+      }
+    </style>
   </head>
   <body>
     <noscript>
