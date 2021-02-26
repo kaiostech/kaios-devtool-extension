@@ -14,10 +14,12 @@ A lightweight UI to install/uninstall & list apps.
     - Or clone this repo then execute `npm install && npm run build`.
     - For MacOS/Windows, please replace executabe `dist\app\appscmd` with the correct one under `dist\app\target\<environment>\appscmd(.exe)`
 
-2. ```sh
-   cd dist
-   bash app\install_native_app.sh
-   ```
+2. Open terminal, execute following shell command to install native messaging app.
+
+    ```sh
+    cd dist
+    bash app\install_native_app.sh
+    ```
 
     For Windows please make sure python installed already then execute following steps
     - Rename `message_host_win.json` to replace `message_host.json`
