@@ -12,7 +12,7 @@ A lightweight UI to install/uninstall & list apps.
 
 1. Download latest artifact from <https://git.kaiostech.com/daniel.yang/kaios-devtool/pipelines> then unzip it.
     - Or clone this repo then execute `npm install && npm run build`.
-    - For MacOS/Windows, please replace executabe `dist\app\appscmd` with the correct one under `dist\app\target\<environment>\appscmd(.exe)`
+    - For MacOS/Windows, please replace executabe `dist\app\appscmd` with the correct one under `dist\app\target.zip\<environment>\appscmd(.exe)`
 
 2. Open terminal, execute following shell command to install native messaging app.
 
